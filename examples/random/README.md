@@ -1,4 +1,10 @@
-# Hello World
+# Random Example
+
+Generate domain with random mode by root moudle.
+
+```bash
+$ tf apply -auto-approve
+```
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -6,6 +12,8 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.5.1 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | >= 0.9.1 |
 
 ## Providers
 
@@ -29,7 +37,7 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_project_name"></a> [project\_name](#output\_project\_name) | n/a |
-| <a name="output_environment_name"></a> [environment\_name](#output\_environment\_name) | n/a |
-| <a name="output_resource_name"></a> [resource\_name](#output\_resource\_name) | n/a |
+| <a name="output_context"></a> [context](#output\_context) | n/a |
+| <a name="output_selector"></a> [selector](#output\_selector) | n/a |
+| <a name="output_result"></a> [result](#output\_result) | n/a |
 <!-- END_TF_DOCS -->

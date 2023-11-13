@@ -1,17 +1,29 @@
-# Awesome Walrus Template
+# Generic Domain(Name) Service
 
-Start here to create an awesome Walrus template.
+Terraform module generates the domain by the given domain suffix, intended for use with a [Wildcard DNS record](https://en.wikipedia.org/wiki/Wildcard_DNS_record).
 
 ## Usage
 
 ```hcl
+module "example" {
+  source = "..."
+
+  infrastructure = {
+    domain_suffix = "..."
+  }
+
+  deployment = {
+    type = contextual
+  }
+}
 
 ```
 
 ## Examples
 
-- ...
-- ...
+- [Contextual](./examples/contextual)
+- [Random](./examples/random)
+- [Timestamp](./examples/timestamp)
 
 ## Contributing
 
@@ -23,38 +35,42 @@ Please read our [contributing guide](./docs/CONTRIBUTING.md) if you're intereste
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.5.1 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | >= 0.9.1 |
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_time"></a> [time](#provider\_time) | >= 0.9.1 |
+| <a name="provider_random"></a> [random](#provider\_random) | >= 3.5.1 |
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_submodule"></a> [submodule](#module\_submodule) | ./modules/submodule | n/a |
+No modules.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [random_integer.indexer](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer) | resource |
+| [time_static.current](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/static) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_context"></a> [context](#input\_context) | Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.<br><br>Examples:<pre>context:<br>  project:<br>    name: string<br>    id: string<br>  environment:<br>    name: string<br>    id: string<br>  resource:<br>    name: string<br>    id: string</pre> | `map(any)` | `{}` | no |
+| <a name="input_infrastructure"></a> [infrastructure](#input\_infrastructure) | Specify the infrastructure information for deploying.<br><br>Examples:<pre>infrastructure:<br>  type: string, optional</pre> | <pre>object({<br>    domain_suffix = optional(string, "example.io")<br>  })</pre> | `{}` | no |
+| <a name="input_deployment"></a> [deployment](#input\_deployment) | Specify the deployment action, like scaling, scheduling, security and so on.<br><br>Examples:<pre>deployment:<br>  type: string, optional         # i.e. contextual, timestamp, hashed</pre> | <pre>object({<br>    type = optional(string, "contextual")<br>  })</pre> | <pre>{<br>  "type": "contextual"<br>}</pre> | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_walrus_project_name"></a> [walrus\_project\_name](#output\_walrus\_project\_name) | The name of project where deployed in Walrus. |
-| <a name="output_walrus_project_id"></a> [walrus\_project\_id](#output\_walrus\_project\_id) | The id of project where deployed in Walrus. |
-| <a name="output_walrus_environment_name"></a> [walrus\_environment\_name](#output\_walrus\_environment\_name) | The name of environment where deployed in Walrus. |
-| <a name="output_walrus_environment_id"></a> [walrus\_environment\_id](#output\_walrus\_environment\_id) | The id of environment where deployed in Walrus. |
-| <a name="output_walrus_resource_name"></a> [walrus\_resource\_name](#output\_walrus\_resource\_name) | The name of resource where deployed in Walrus. |
-| <a name="output_walrus_resource_id"></a> [walrus\_resource\_id](#output\_walrus\_resource\_id) | The id of resource where deployed in Walrus. |
-| <a name="output_submodule"></a> [submodule](#output\_submodule) | The message from submodule. |
+| <a name="output_context"></a> [context](#output\_context) | The input context, a map, which is used for orchestration. |
+| <a name="output_selector"></a> [selector](#output\_selector) | The selector, a map, which is used for dependencies or collaborations. |
+| <a name="output_result"></a> [result](#output\_result) | The generated result of the domain. |
 <!-- END_TF_DOCS -->
 
 ## License
