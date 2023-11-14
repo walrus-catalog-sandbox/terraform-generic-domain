@@ -35,7 +35,7 @@ Specify the infrastructure information for deploying.
 Examples:
 ```
 infrastructure:
-  type: string, optional
+  domain_suffix: string, optional
 ```
 EOF
   type = object({
@@ -48,20 +48,10 @@ EOF
 # Deployment Fields
 #
 
-variable "deployment" {
+variable "mode" {
   description = <<-EOF
-Specify the deployment action.
-
-Examples:
-```
-deployment:
-  type: string, optional         # i.e. contextual, timestamp, random
-```
+Specify the generation mode, select from contextual, random or timestamp.
 EOF
-  type = object({
-    type = optional(string, "contextual")
-  })
-  default = {
-    type = "contextual"
-  }
+  type        = string
+  default     = "contextual"
 }

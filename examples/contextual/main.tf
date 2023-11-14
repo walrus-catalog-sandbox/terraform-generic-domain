@@ -34,10 +34,6 @@ module "this" {
   infrastructure = {
     domain_suffix = "example.io"
   }
-
-  deployment = {
-    type = "contextual"
-  }
 }
 
 output "context" {

@@ -35,9 +35,7 @@ module "this" {
     domain_suffix = "example.io"
   }
 
-  deployment = {
-    type = "timestamp"
-  }
+  mode = "timestamp"
 }
 
 output "context" {

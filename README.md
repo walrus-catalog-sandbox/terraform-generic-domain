@@ -9,12 +9,10 @@ module "example" {
   source = "..."
 
   infrastructure = {
-    domain_suffix = "..."
+    domain_suffix = "my-awesome-app.io"
   }
 
-  deployment = {
-    type = contextual
-  }
+  mode = random
 }
 
 ```
@@ -61,8 +59,8 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_context"></a> [context](#input\_context) | Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.<br><br>Examples:<pre>context:<br>  project:<br>    name: string<br>    id: string<br>  environment:<br>    name: string<br>    id: string<br>  resource:<br>    name: string<br>    id: string</pre> | `map(any)` | `{}` | no |
-| <a name="input_infrastructure"></a> [infrastructure](#input\_infrastructure) | Specify the infrastructure information for deploying.<br><br>Examples:<pre>infrastructure:<br>  type: string, optional</pre> | <pre>object({<br>    domain_suffix = optional(string, "example.io")<br>  })</pre> | `{}` | no |
-| <a name="input_deployment"></a> [deployment](#input\_deployment) | Specify the deployment action, like scaling, scheduling, security and so on.<br><br>Examples:<pre>deployment:<br>  type: string, optional         # i.e. contextual, timestamp, hashed</pre> | <pre>object({<br>    type = optional(string, "contextual")<br>  })</pre> | <pre>{<br>  "type": "contextual"<br>}</pre> | no |
+| <a name="input_infrastructure"></a> [infrastructure](#input\_infrastructure) | Specify the infrastructure information for deploying.<br><br>Examples:<pre>infrastructure:<br>  domain_suffix: string, optional</pre> | <pre>object({<br>    domain_suffix = optional(string, "example.io")<br>  })</pre> | `{}` | no |
+| <a name="input_mode"></a> [mode](#input\_mode) | Specify the generation mode, select from contextual, random or timestamp. | `string` | `"contextual"` | no |
 
 ## Outputs
 

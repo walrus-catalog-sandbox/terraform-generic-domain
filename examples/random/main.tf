@@ -35,9 +35,7 @@ module "this" {
     domain_suffix = "example.io"
   }
 
-  deployment = {
-    type = "random"
-  }
+  mode = "random"
 }
 
 output "context" {
