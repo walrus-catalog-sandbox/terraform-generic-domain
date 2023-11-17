@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template terraform-generic-domain
+components:
+  schemas:
+    variables:
+      required: []
+      type: object
+      properties:
+        context:
+          title: Context
+          type: object
+          description: |
+            Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.
+
+            Examples:
+            ```
+            context:
+              project:
+                name: string
+                id: string
+              environment:
+                name: string
+                id: string
+              resource:
+                name: string
+                id: string
+            ```
+          default: {}
+          additionalProperties:
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            hidden: true
+            order: 1
+        infrastructure:
+          title: Infrastructure
+          type: object
+          description: |
+            Specify the infrastructure information for deploying.
+
+            Examples:
+            ```
+            infrastructure:
+              domain_suffix: string, optional
+            ```
+          default: {}
+          properties:
+            domain_suffix:
+              title: Domain Suffix
+              type: string
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 2
+        mode:
+          title: Mode
+          type: string
+          description: |
+            Specify the generation mode, select from contextual, random or timestamp.
+          default: contextual
+          x-walrus-ui:
+            group: Basic
+            order: 3
