@@ -50,6 +50,10 @@ components:
           default: {}
           properties:
             domain_suffix:
+              description: |
+                Specify the domain suffix for generating.
+                The given domain suffix must be a valid domain name and has a Wildcard DNS record on your DNS resolver.
+              default: "example.io"
               title: Domain Suffix
               type: string
           x-walrus-ui:
