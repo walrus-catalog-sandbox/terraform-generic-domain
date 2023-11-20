@@ -66,6 +66,10 @@ components:
           description: |
             Specify the generation mode, select from contextual, random or timestamp.
           default: contextual
+          enum:
+            - contextual
+            - random
+            - timestamp
           x-walrus-ui:
             group: Basic
             order: 3
