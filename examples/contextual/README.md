@@ -38,6 +38,6 @@ No inputs.
 | Name | Description |
 |------|-------------|
 | <a name="output_context"></a> [context](#output\_context) | n/a |
-| <a name="output_selector"></a> [selector](#output\_selector) | n/a |
+| <a name="output_refer"></a> [refer](#output\_refer) | n/a |
 | <a name="output_result"></a> [result](#output\_result) | n/a |
 <!-- END_TF_DOCS -->

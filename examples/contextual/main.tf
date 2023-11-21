@@ -40,8 +40,8 @@ output "context" {
   value = module.this.context
 }
 
-output "selector" {
-  value = module.this.selector
+output "refer" {
+  value = nonsensitive(module.this.refer)
 }
 
 output "result" {
