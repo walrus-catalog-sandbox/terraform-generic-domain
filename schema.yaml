@@ -12,20 +12,6 @@ components:
           type: object
           description: |
             Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.
-
-            Examples:
-            ```
-            context:
-              project:
-                name: string
-                id: string
-              environment:
-                name: string
-                id: string
-              resource:
-                name: string
-                id: string
-            ```
           default: {}
           additionalProperties:
             type: object
@@ -33,7 +19,7 @@ components:
               colSpan: 12
           x-walrus-ui:
             colSpan: 12
-            group: Basic
+            group: Advanced
             hidden: true
             order: 1
         infrastructure:
@@ -41,12 +27,6 @@ components:
           type: object
           description: |
             Specify the infrastructure information for deploying.
-
-            Examples:
-            ```
-            infrastructure:
-              domain_suffix: string, optional
-            ```
           default: {}
           properties:
             domain_suffix:
@@ -58,7 +38,7 @@ components:
               type: string
           x-walrus-ui:
             colSpan: 12
-            group: Basic
+            group: Advanced
             order: 2
         mode:
           title: Mode
@@ -73,3 +53,7 @@ components:
           x-walrus-ui:
             group: Basic
             order: 3
+      x-walrus-ui:
+        groupOrder:
+        - Basic
+        - Advanced
