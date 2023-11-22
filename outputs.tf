@@ -17,8 +17,9 @@ output "refer" {
   value = {
     schema = "generic:domain"
     params = {
-      mode   = var.mode
-      result = local.result
+      selector = {}
+      mode     = var.mode
+      result   = local.result
     }
   }
 }
