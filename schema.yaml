@@ -4,7 +4,8 @@ info:
 components:
   schemas:
     variables:
-      required: []
+      required: 
+      - mode
       type: object
       properties:
         context:
@@ -13,6 +14,7 @@ components:
           description: |
             Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.
           default: {}
+          nullable: true
           additionalProperties:
             type: object
             x-walrus-ui:
@@ -28,6 +30,7 @@ components:
           description: |
             Specify the infrastructure information for deploying.
           default: {}
+          nullable: true
           properties:
             domain_suffix:
               description: |
