@@ -4,9 +4,9 @@ info:
 components:
   schemas:
     variables:
-      required: 
-      - mode
       type: object
+      required:
+      - mode
       properties:
         context:
           title: Context
@@ -33,12 +33,15 @@ components:
           nullable: true
           properties:
             domain_suffix:
+              default: example.io
               description: |
                 Specify the domain suffix for generating.
                 The given domain suffix must be a valid domain name and has a Wildcard DNS record on your DNS resolver.
-              default: "example.io"
+              nullable: true
               title: Domain Suffix
               type: string
+              x-walrus-ui:
+                order: 1
           x-walrus-ui:
             colSpan: 12
             group: Advanced
@@ -50,9 +53,10 @@ components:
             Specify the generation mode, select from contextual, random or timestamp.
           default: contextual
           enum:
-            - contextual
-            - random
-            - timestamp
+          - contextual
+          - random
+          - timestamp
+          nullable: true
           x-walrus-ui:
             group: Basic
             order: 3
