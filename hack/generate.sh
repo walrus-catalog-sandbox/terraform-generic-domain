@@ -42,7 +42,7 @@ function generate_doc() {
         seal::log::warn "There is no Terraform files under ${path}"
       fi
     done
-    
+
     return 0
   fi
 
