@@ -40,8 +40,8 @@ Please read our [contributing guide](./docs/CONTRIBUTING.md) if you're intereste
 
 | Name | Version |
 |------|---------|
-| <a name="provider_time"></a> [time](#provider\_time) | >= 0.9.1 |
 | <a name="provider_random"></a> [random](#provider\_random) | >= 3.5.1 |
+| <a name="provider_time"></a> [time](#provider\_time) | >= 0.9.1 |
 
 ## Modules
 
