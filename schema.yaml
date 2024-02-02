@@ -12,14 +12,12 @@ components:
           description: |
             Specify the infrastructure information for deploying.
           default: {}
-          nullable: true
           properties:
             domain_suffix:
               default: example.io
               description: |
                 Specify the domain suffix for generating.
                 The given domain suffix must be a valid domain name and has a Wildcard DNS record on your DNS resolver.
-              nullable: true
               title: Domain Suffix
               type: string
               x-walrus-ui:
@@ -38,7 +36,6 @@ components:
           - contextual
           - random
           - timestamp
-          nullable: true
           x-walrus-ui:
             group: Basic
             order: 3
